@@ -73,8 +73,7 @@
                                 <tr>
                                     <td bgcolor="#F5F5F5"><b>성향</b></td>
                                     <td colspan="3">
-                                        <input type="text" class="pf_input" style="width: 80%;"  >
-                                        <input class="btn btn-outline-secondary" type="submit" value="추가하기" >
+                                        <input type="text" class="pf_input" style="width: 100%;"  >
                                     </td>
                                 </tr>
                                 <tr>

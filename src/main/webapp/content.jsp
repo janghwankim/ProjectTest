@@ -54,7 +54,12 @@
                             </tr>
                             <tr>
                                 <td bgcolor="#F5F5F5"><b>성향</b></td>
-                                <td colspan="3">비흡연자, 반려동물, 09:00출근, 18:00퇴근</td>
+                                <td colspan="3">
+                                    	흡연: ${smoking} 수면시간: ${sleeptime} 기상시간: ${waketime} 반려동물: ${pet} <br>
+                                    	잠버릇: ${sleepinghabbit} 샤워시간: ${showertime} 출근시간: ${start_time} 퇴근시간: ${end_time}
+                                     
+                                    </td>
+                                <!-- <td colspan="3">비흡연자, 반려동물, 09:00출근, 18:00퇴근</td> -->
                             </tr>
                             <tr>
                                 <td bgcolor="#F5F5F5"><b>라이프스타일</b></td>

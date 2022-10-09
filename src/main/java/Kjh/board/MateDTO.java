@@ -1,9 +1,6 @@
 package Kjh.board;
 
 
-import java.sql.Timestamp;//DB상의 테이블의 필드와 연관
-
-
 public class MateDTO {
 
 	
@@ -74,7 +71,7 @@ public class MateDTO {
 		this.other_matter = convert(other_matter);
 	}
 
-
+	
 	//모든 DTO클래스 뒤에 이 메서드를 추가할것
 		//이 클래스에서만 사용하기위해서 접근지정자 private <,>,(,)=>변경메서드
 			private static String convert(String name) {
