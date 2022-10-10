@@ -12,13 +12,14 @@ import javax.servlet.http.HttpSession;
 import Kjh.board.*;
 
 public class ContentAction implements CommandAction {
-
+/*
 	private Connection con = null;
 	private DBConnectionMgr pool = null;
 	private PreparedStatement pstmt = null;
 	private ResultSet rs = null;// select를 해서 찾은값을 담는 상자라고 생각하기
 	private String sql = "";// 실행시킬 SQL구문
 	private HttpSession session;
+*/	
 	
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
@@ -34,7 +35,7 @@ public class ContentAction implements CommandAction {
 
 		//----------------------------------------------------------------------------------
 		//성향부분
-		
+		/*
 		   pool = DBConnectionMgr.getInstance();
 		   con=pool.getConnection();
 		   sql = "select * from friend a inner join tendency b on a.id_no = b.id_no where mate_no=?";
@@ -60,7 +61,7 @@ public class ContentAction implements CommandAction {
 				end_time = rs.getString("end_time");
 			}
 		//------------------------------------------------------------------------------------
-
+*/
 		
 		
 		
@@ -69,7 +70,7 @@ public class ContentAction implements CommandAction {
 		request.setAttribute("num", num);//${키명}때문에 키명이랑 value값을 같게 설정함
 		request.setAttribute("pageNum", pageNum);
 		request.setAttribute("article", article);
-	
+	/*
 	   	//Session 성향부분 추가
 	   	request.setAttribute("sleeptime", sleeptime);
 	   	request.setAttribute("waketime", waketime);
@@ -80,6 +81,7 @@ public class ContentAction implements CommandAction {
 	   	request.setAttribute("start_time", start_time);
 	   	request.setAttribute("end_time", end_time);
 		
+	*/	
 		//3.페이지 공유
 		return "/content.jsp"; //경로에 맞게 설계  
 	}

@@ -29,6 +29,7 @@ public class WriteProAction implements CommandAction {
 		article.setViews(Integer.parseInt(request.getParameter("views")));
 		
 		
+		
 		MateDAO dbPro=new MateDAO();
 		dbPro.insertArticle(article,ten);
 		//3.공유->페이지 이동

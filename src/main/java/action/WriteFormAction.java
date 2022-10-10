@@ -26,7 +26,7 @@ public class WriteFormAction implements CommandAction {
 		   int num=0;
 		   
 		   //Session의 아이디와 성별을 가져불러와 적용하기위한 부분
-		   String loginUserID = "a6";		//임시로 넣어둔 값(실제 DB에 있는 아이디) (나중에 밑어껄로 바꿔야함)
+		   String loginUserID = "kkk";		//임시로 넣어둔 값(실제 DB에 있는 아이디) (나중에 밑어껄로 바꿔야함)
 // 		   String loginUserID = session.getAttribute("id");   					 //Session을 Object로 담았을때
 //		   String loginUserID = session.getAttribute("id").toString();		 //Session을 String으로 담았을때
 //		   MemberDTO mem = (MemberDTO)session.getAttribute("loginUserInfo"); //Session이 DTO로 담았을때
@@ -44,7 +44,7 @@ public class WriteFormAction implements CommandAction {
 			}
 			//----------------------------------------------------------------------------------
 			//성향부분
-			int uesrTen_no=6; // 임시로 넣은값 => 나중에 session으로 받아와야함
+			int uesrTen_no=1; // 임시로 넣은값 => 나중에 session으로 받아와야함
 			
 			   pool = DBConnectionMgr.getInstance();
 			   con=pool.getConnection();

@@ -15,7 +15,7 @@ public class ListAction2 implements CommandAction {
 		//1. /list.jsp에서 처리했던 자바코드를 대신처리해주고 그 결과->전달
 		
 		int pageSize=12;//=numPerPage=>페이지당 보여주는 게시물수 
-		int blockSize=5;//=pagePerBlock=>블럭당 보여주는 페이지수
+		int blockSize=3;//=pagePerBlock=>블럭당 보여주는 페이지수
 		
 	//게시판을 맨 처음 실행시키면 무조건 1페이지부터 출력->가장 최근의 글부터 출력
 	String pageNum=request.getParameter("pageNum");
