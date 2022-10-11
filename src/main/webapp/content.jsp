@@ -25,7 +25,7 @@
             <nav class="nav">
                 <ul class="menu">
                     <li><a href="#">쉐어하우스</a></li>
-                    <li><a href="#">룸메이트</a></li>
+                    <li><a href="/Project/list.do">룸메이트</a></li>
                     <li><a href="#">자유게시판</a></li>
                     <li><a href="#">공지사항</a></li>
                     <li><a href="#">성향테스트</a></li>
