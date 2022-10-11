@@ -6,4 +6,4 @@
 <%
 	//response.sendRedirect("list.jsp");//입력한후 다시 DB접속->출력
 %>   
-<meta http-equiv="Refresh" content="0;url=/Project/list.do">
+<meta http-equiv="Refresh" content="0;url=/Project/mate_list.do">

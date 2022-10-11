@@ -12,7 +12,14 @@ public class TendencyDTO {
 	private String cleaning = "";//관리스타일
 	private String sleepinghabbit = "";//잠버릇
 	private String showertime = "";//샤워시간
+	private String waketime = "";//기상시간
 	
+	public String getWaketime() {
+		return waketime;
+	}
+	public void setWaketime(String waketime) {
+		this.waketime = waketime;
+	}
 	//필터를 위해 추가 
 	private String searchText = "";
 	private String sleep ="" ;	

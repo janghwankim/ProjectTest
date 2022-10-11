@@ -28,7 +28,7 @@
             <nav class="nav">
                 <ul class="menu">
                     <li><a href="#">쉐어하우스</a></li>
-                    <li><a href="/Project/list.do">룸메이트</a></li>
+                    <li><a href="/Project/mate_list.do">룸메이트</a></li>
                     <li><a href="#">자유게시판</a></li>
                     <li><a href="#">공지사항</a></li>
                     <li><a href="#">성향테스트</a></li>
@@ -37,7 +37,7 @@
             <p>
 	<div>
 	<form method="post" name="writeform" 
-		   action="/Project/updatePro.do" 
+		   action="/Project/mate_updatePro.do" 
 		   onsubmit="return writeSave()">
 		   
 	<!-- 입력하지 않고 매개변수로 전달해서 테이블에 저장(hidden) -->		   
@@ -92,7 +92,7 @@
                                     <td colspan="4" align="center">
                                     <input class="btn btn-outline-secondary" type="reset" value="다시작성">  
                                     <input class="btn btn-outline-secondary" type="submit" value="수정하기">
-                                   <input class="btn btn-outline-secondary" type="button" value="목록보기"  onclick="document.location.href='/Project/list.do?pageNum=${pageNum}'">
+                                   <input class="btn btn-outline-secondary" type="button" value="목록보기"  onclick="document.location.href='/Project/mate_list.do?pageNum=${pageNum}'">
                                     </td>
                                 </tr>
                             </table>

@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import Kjh.board.*;//BoardDAO,BoardDTO
 import java.sql.Timestamp;//DB에서의 필드의 날짜자료형때문에
 
-public class UpdateProAction implements CommandAction {
+public class mate_UpdateProAction implements CommandAction {
 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
@@ -35,6 +35,6 @@ public class UpdateProAction implements CommandAction {
 		request.setAttribute("check", check);//${check} 데이터 수정성공유무
 		
 		//3.공유->페이지 이동
-		return "/updatePro.jsp";//  /list.do로 처리->/list.jsp
+		return "/mate_updatePro.jsp";//  /list.do로 처리->/list.jsp
 	}
 }

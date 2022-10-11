@@ -12,7 +12,7 @@ import Kjh.board.DBConnectionMgr;
 import Kjh.board.MemberDTO;
 import Kjh.board.TendencyDTO;
 
-public class WriteFormAction implements CommandAction {
+public class mate_WriteFormAction implements CommandAction {
 
 	private Connection con = null;
 	private DBConnectionMgr pool = null;
@@ -24,7 +24,7 @@ public class WriteFormAction implements CommandAction {
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 		// TODO Auto-generated method stub
 		   int num=0;
-		   
+
 		   //Session의 아이디와 성별을 가져불러와 적용하기위한 부분
 		   String loginUserID = "kkk";		//임시로 넣어둔 값(실제 DB에 있는 아이디) (나중에 밑어껄로 바꿔야함)
 // 		   String loginUserID = session.getAttribute("id");   					 //Session을 Object로 담았을때
@@ -33,43 +33,40 @@ public class WriteFormAction implements CommandAction {
 //		   loginUserID = mem.getId();
 		   pool = DBConnectionMgr.getInstance();
 		   con=pool.getConnection();
-		   sql = "select * from member where id='"+loginUserID +"'";
+		   sql = "SELECT A.ID, A.GENDER, B.* FROM MEMBER A "
+		   		+ "INNER JOIN TENDENCY B "
+		   		+ "ON A.ID_NO = B.ID_NO"
+		   		+ " where A.id='"+loginUserID +"'";
+		   
 		   pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			String gender= "";
 			String id = "";
+			
+		//	int id_no= 0;
+			String sleeptime= "";
+			String waketime = "";
+			String smoking ="";
+			String pet ="";
+			String sleepinghabbit ="";
+			String showertime ="";
+			String start_time ="";
+			String end_time ="";
 			if (rs.next()) {
 				gender = rs.getString("gender");
 				id = rs.getString("id");
+				
+	//			id_no=rs.getInt("id_no");
+				sleeptime = rs.getString("sleeptime");
+				waketime = rs.getString("waketime");
+				smoking = rs.getString("smoking");
+				pet = rs.getString("pet");
+				sleepinghabbit = rs.getString("sleepinghabbit");
+				showertime = rs.getString("showertime");
+				start_time = rs.getString("start_time");
+				end_time = rs.getString("end_time");
 			}
-			//----------------------------------------------------------------------------------
-			//성향부분
-			int uesrTen_no=1; // 임시로 넣은값 => 나중에 session으로 받아와야함
-			
-			   pool = DBConnectionMgr.getInstance();
-			   con=pool.getConnection();
-			   sql = "select * from tendency where id_no='"+uesrTen_no +"'";
-			   pstmt = con.prepareStatement(sql);
-				rs = pstmt.executeQuery();
-				String sleeptime= "";
-				String waketime = "";
-				String smoking ="";
-				String pet ="";
-				String sleepinghabbit ="";
-				String showertime ="";
-				String start_time ="";
-				String end_time ="";
-				if (rs.next()) {
-					sleeptime = rs.getString("sleeptime");
-					waketime = rs.getString("waketime");
-					smoking = rs.getString("smoking");
-					pet = rs.getString("pet");
-					sleepinghabbit = rs.getString("sleepinghabbit");
-					showertime = rs.getString("showertime");
-					start_time = rs.getString("start_time");
-					end_time = rs.getString("end_time");
-				}
-			//------------------------------------------------------------------------------------
+		
 		   //content.do에서 매개변수로 전달
 		   if(request.getParameter("num")!=null){//0,음수X=>양수1이상
 			   num=Integer.parseInt(request.getParameter("num"));//"3"=>3
@@ -80,10 +77,10 @@ public class WriteFormAction implements CommandAction {
 		   }
 		   //2.실행결과->서버의 메모리에 저장=>공유해서 이동
 		   	request.setAttribute("num", num); //${num}
-		   	// Session  아디 성별 부분 추가
 		   	request.setAttribute("id", id); //${id}
 		   	request.setAttribute("gender", gender); //${gender}
-		   	//Session 성향부분 추가
+
+//		   	request.setAttribute("id_no", id_no);
 		   	request.setAttribute("sleeptime", sleeptime);
 		   	request.setAttribute("waketime", waketime);
 		   	request.setAttribute("smoking", smoking);
@@ -95,7 +92,7 @@ public class WriteFormAction implements CommandAction {
 	
 		   	
 		   	
-		return "/writeForm.jsp";
+		return "/mate_writeForm.jsp";
 	}
 
 }

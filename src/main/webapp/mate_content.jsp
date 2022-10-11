@@ -25,7 +25,7 @@
             <nav class="nav">
                 <ul class="menu">
                     <li><a href="#">쉐어하우스</a></li>
-                    <li><a href="/Project/list.do">룸메이트</a></li>
+                    <li><a href="/Project/mate_list.do">룸메이트</a></li>
                     <li><a href="#">자유게시판</a></li>
                     <li><a href="#">공지사항</a></li>
                     <li><a href="#">성향테스트</a></li>
@@ -55,11 +55,9 @@
                             <tr>
                                 <td bgcolor="#F5F5F5"><b>성향</b></td>
                                 <td colspan="3">
-                                    	흡연: ${smoking} 수면시간: ${sleeptime} 기상시간: ${waketime} 반려동물: ${pet} <br>
-                                    	잠버릇: ${sleepinghabbit} 샤워시간: ${showertime} 출근시간: ${start_time} 퇴근시간: ${end_time}
-                                     
+                                    	흡연: ${article.tendency.smoking} 수면시간: ${article.tendency.sleeptime} 기상시간: ${article.tendency.waketime} 반려동물: ${article.tendency.pet} <br>
+                                    	잠버릇: ${article.tendency.sleepinghabbit} 샤워시간: ${article.tendency.showertime} 출근시간: ${article.tendency.workStartTime} 퇴근시간: ${article.tendency.workEndTime}
                                     </td>
-                                <!-- <td colspan="3">비흡연자, 반려동물, 09:00출근, 18:00퇴근</td> -->
                             </tr>
                             <tr>
                                 <td bgcolor="#F5F5F5"><b>라이프스타일</b></td>
@@ -80,9 +78,9 @@
                                     <span class="pf_button">
                                         <input class="btn btn-outline-secondary" type="submit" value="신청하기">
                                     </span>
-                                <input type="button" class="btn btn-outline-secondary" value="글수정"  onclick="document.location.href='/Project/updateForm.do?mate_no=${article.mate_no}&pageNum=${pageNum}'">
-                                <input type="button" class="btn btn-outline-secondary" value="글삭제"  onclick="document.location.href='/Project/deleteForm.do?mate_no=${article.mate_no}&pageNum=${pageNum}'">
-                                <input type="button" class="btn btn-outline-secondary" value="글목록" onclick="document.location.href='/Project/list.do?pageNum=${pageNum}'">
+                                <input type="button" class="btn btn-outline-secondary" value="글수정"  onclick="document.location.href='/Project/mate_updateForm.do?mate_no=${article.mate_no}&pageNum=${pageNum}'">
+                                <input type="button" class="btn btn-outline-secondary" value="글삭제"  onclick="document.location.href='/Project/mate_deleteForm.do?mate_no=${article.mate_no}&pageNum=${pageNum}'">
+                                <input type="button" class="btn btn-outline-secondary" value="글목록" onclick="document.location.href='/Project/mate_list.do?pageNum=${pageNum}'">
                                 </td>
                             </tr>
                         </table>

@@ -22,7 +22,7 @@
 <center><b>글삭제</b>
 <br>
 <form method="POST" name="delForm"  
-			action="/Project/deletePro.do?pageNum=${pageNum}&mate_no=${mate_no}" 
+			action="/Project/mate_deletePro.do?pageNum=${pageNum}&mate_no=${mate_no}" 
    			onsubmit="return deleteSave()"> 
  <table border="1" align="center" cellspacing="0" cellpadding="0" width="400">
   <tr height="50" bgcolor= "lightgray">
@@ -41,7 +41,7 @@
  <tr height="30">
     <td  height="50" align="center">
        	 	<input class="btn btn-outline-secondary" type="submit" value="삭제하기">  
-        	<input class="btn btn-outline-secondary" type="button" value="목록보기" onclick="document.location.href='/Project/list.do?pageNum=${pageNum}'">
+        	<input class="btn btn-outline-secondary" type="button" value="목록보기" onclick="document.location.href='/Project/mate_list.do?pageNum=${pageNum}'">
         </td>
  </tr>  
 </table> 

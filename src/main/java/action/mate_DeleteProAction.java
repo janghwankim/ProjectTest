@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import Kjh.board.*;
 
-public class DeleteProAction implements CommandAction {
+public class mate_DeleteProAction implements CommandAction {
 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
@@ -22,7 +22,7 @@ public class DeleteProAction implements CommandAction {
 		request.setAttribute("pageNum", pageNum);// 페이지이동
 		request.setAttribute("check", check);
 				
-		return "/deletePro.jsp";//updatePro.jsp와 소스코드가 동일
+		return "/mate_deletePro.jsp";//updatePro.jsp와 소스코드가 동일
 	}
 
 }

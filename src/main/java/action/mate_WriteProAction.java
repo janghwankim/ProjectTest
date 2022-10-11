@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import Kjh.board.*;//BoardDAO,BoardDTO
 import java.sql.Timestamp;//DB에서의 필드의 날짜자료형때문에
 
-public class WriteProAction implements CommandAction {
+public class mate_WriteProAction implements CommandAction {
 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
@@ -33,6 +33,6 @@ public class WriteProAction implements CommandAction {
 		MateDAO dbPro=new MateDAO();
 		dbPro.insertArticle(article,ten);
 		//3.공유->페이지 이동
-		return "/writePro.jsp";//  /list.do로 처리->/list.jsp
+		return "/mate_writePro.jsp";//  /list.do로 처리->/list.jsp
 	}
 }

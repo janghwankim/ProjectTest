@@ -9,7 +9,7 @@ import Kjh.board.MateDTO;
 
 
 //   /updateForm.do?num=3&pageNum=1
-public class UpdateFormAction implements CommandAction {
+public class mate_UpdateFormAction implements CommandAction {
 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
@@ -25,7 +25,7 @@ public class UpdateFormAction implements CommandAction {
 		request.setAttribute("pageNum", pageNum);
 		request.setAttribute("article", article);
 		
-		return "/updateForm.jsp";
+		return "/mate_updateForm.jsp";
 	}
 
 }

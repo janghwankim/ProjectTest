@@ -1,3 +1,3 @@
 <%
-response.sendRedirect("http://localhost:8090/Project/list.do");
+response.sendRedirect("http://localhost:8090/Project/mate_list.do");
 %>

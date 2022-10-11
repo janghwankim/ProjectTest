@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 //추가
 import Kjh.board.*;
 
-public class ContentAction implements CommandAction {
+public class mate_ContentAction implements CommandAction {
 /*
 	private Connection con = null;
 	private DBConnectionMgr pool = null;
@@ -83,7 +83,7 @@ public class ContentAction implements CommandAction {
 		
 	*/	
 		//3.페이지 공유
-		return "/content.jsp"; //경로에 맞게 설계  
+		return "/mate_content.jsp"; //경로에 맞게 설계  
 	}
 
 }

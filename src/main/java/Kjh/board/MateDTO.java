@@ -13,8 +13,19 @@ public class MateDTO {
 	private String lifestyle; //라이프스타일
 	private int views;//조회수
 	private String other_matter; //기타사항
+	private TendencyDTO tendency = new TendencyDTO();
 	
+	public MateDTO() {
+		// TODO Auto-generated constructor stub
+	}
 	
+	public TendencyDTO getTendency() {
+		return tendency;
+	}
+
+	public void setTendency(TendencyDTO tendency) {
+		this.tendency = tendency;
+	}
 
 	public int getMate_no() {
 		return mate_no;
