@@ -15,6 +15,11 @@ public class MateDTO {
 	private String other_matter; //기타사항
 	private TendencyDTO tendency = new TendencyDTO();
 	
+	//추가 사진 업로드
+	private String fileName; 
+	private String fileRealName;
+	
+	
 	public MateDTO() {
 		// TODO Auto-generated constructor stub
 	}
@@ -83,7 +88,23 @@ public class MateDTO {
 	}
 
 	
-	//모든 DTO클래스 뒤에 이 메서드를 추가할것
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+
+	public String getFileRealName() {
+		return fileRealName;
+	}
+
+	public void setFileRealName(String fileRealName) {
+		this.fileRealName = fileRealName;
+	}
+
+			//모든 DTO클래스 뒤에 이 메서드를 추가할것
 		//이 클래스에서만 사용하기위해서 접근지정자 private <,>,(,)=>변경메서드
 			private static String convert(String name) {
 				if(name!=null){

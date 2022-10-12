@@ -28,7 +28,7 @@
             <nav class="nav">
                 <ul class="menu">
                     <li><a href="#">쉐어하우스</a></li>
-                    <li><a href="#">룸메이트</a></li>
+                    <li><a href="/Project/mate_list.do">룸메이트</a></li>
                     <li><a href="#">자유게시판</a></li>
                     <li><a href="#">공지사항</a></li>
                     <li><a href="#">성향테스트</a></li>
@@ -37,12 +37,12 @@
             <p>
 	<div>
 	<form method="post" name="writeform" 
-		   action="/Project/writePro.do" 
+		   action="/Project/mate_writePro.do" 
 		   onsubmit="return writeSave()">
 		   
 	<!-- 입력하지 않고 매개변수로 전달해서 테이블에 저장(hidden) -->		   
 	<input type="hidden" name="mate_no" value="${num}"> 
-	<input type="hidden" name="id_no" value="1">
+	<input type="hidden" name="id_no" value="1"> <!-- ${id_no} -->
 	<input type="hidden" name="views" value="0">
 	
 
@@ -51,19 +51,23 @@
                     <div class="pf_top">
                         <div class="pf_img"> 
                             <!-- 이미지 -->
-                             <input type="file" class="real-upload" accept="image/*" required multiple>
+                             
+                             <div style="text-align: center;">
+                              	<input type="file" class="img-upload" accept="image/*" > 
+                              </div>
                         </div> 
+                       
                     </div>
                     <div class="pf_body">
                             <table width="770" border="1" cellspacing="0" cellpadding="0" align="center">
                                 <tr>
                                     <td bgcolor="#F5F5F5"><b>작성자</b></td>
                                     <td>
-                                        <input type="text" class="pf_input" name="writer" >
+                                        <input type="text" class="pf_input" name="writer" value="<c:out value="${id}"/>" readonly >
                                     </td>
                                     <td bgcolor="#F5F5F5"><b>성별</b></td>
                                     <td>
-                                        <input type="text" class="pf_input" name="gender">
+                                        <input type="text" class="pf_input" name="gender" value="<c:out value="${gender}"/>" readonly>
                                     </td>
                                 </tr>
                                 <tr>
@@ -76,7 +80,12 @@
                                 <tr>
                                     <td bgcolor="#F5F5F5"><b>성향</b></td>
                                     <td colspan="3">
-                                        <input type="text" class="pf_input" style="width: 80%;"  >
+                                    <p>
+                                    	흡연: ${smoking} 수면시간: ${sleeptime} 기상시간: ${waketime} 반려동물: ${pet} <br>
+                                    	잠버릇: ${sleepinghabbit} 샤워시간: ${showertime} 출근시간: ${start_time} 퇴근시간: ${end_time}
+                                        <input type="hidden" class="pf_input" style="width: 100%; height:120px"
+                                        value="<c:out value="흡연: ${smoking} 수면시간: ${sleeptime} 기상시간: ${waketime} 반려동물: ${pet} 잠버릇: ${sleepinghabbit} 샤워시간: ${showertime} 출근시간: ${start_time} 퇴근시간: ${end_time}"  />"  >
+									</p>
                                     </td>
                                 </tr>
                                 <tr>
@@ -95,7 +104,7 @@
                                     <td colspan="4" align="center">
                                     <input class="btn btn-outline-secondary" type="reset" value="다시작성">  
                                     <input class="btn btn-outline-secondary" type="submit" value="생성하기">
-                                    <input class="btn btn-outline-secondary" type="button" value="목록보기" OnClick="window.location='/Project/list.do'">
+                                    <input class="btn btn-outline-secondary" type="button" value="목록보기" OnClick="window.location='/Project/mate_list.do'">
                                     </td>
                                 </tr>
                             </table>

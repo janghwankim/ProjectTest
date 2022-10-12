@@ -7,7 +7,7 @@ import Kjh.board.*;//BoardDAO,BoardDTO
 import java.util.*;
 
 //1.requestPro()을 공통메서드로 사용  2.객체형변환떄문에(상속기법)
-public class ListAction implements CommandAction {
+public class mate_ListAction implements CommandAction {
 	
 	
 	//null 예외처리를 위한 메서드 =>  null을 "" 로 치환해줌
@@ -76,6 +76,6 @@ public class ListAction implements CommandAction {
 	request.setAttribute("articleList", articleList);// ${articleList}
 	
 	//3.공유해서 이동할 수 있도록 페이지를 지정
-		return "/list.jsp";//컨트롤러가 이동시키면서 공유시켜준다.=>view
+		return "/mate_list.jsp";//컨트롤러가 이동시키면서 공유시켜준다.=>view
 	}
 }

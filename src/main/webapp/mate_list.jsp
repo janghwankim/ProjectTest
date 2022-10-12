@@ -47,7 +47,7 @@ function more(){
                 </ul>
             </nav>
        <div class="op">
-        <form name="filter" class="filter" action="/Project/list.do" method="post" onsubmit="doSearch();">
+        <form name="filter" class="filter" action="/Project/mate_list.do" method="post" onsubmit="doSearch();">
         <select class="form-select form-select-lg" name="workStartTime">
             <option value="" selected>출근시간</option>
             <option value="8">08:00</option>
@@ -114,7 +114,7 @@ function more(){
 	     	<table border="1" width="700" cellpadding="0" cellspacing="0" align="center">
 	     	<tr>
 				<td class="add_bt" align="right">
-               	 	<input class="btn btn-outline-secondary" type="submit" value="새 글 작성"  OnClick="window.location='/Project/writeForm.do'">
+               	 	<input class="btn btn-outline-secondary" type="submit" value="새 글 작성"  OnClick="window.location='/Project/mate_writeForm.do'">
             	</td>
 			</tr>
 			<tr>
@@ -127,7 +127,7 @@ function more(){
         <!-- Section-->
         <section class="py-5">
             <span class="add_bt">
-                <input class="btn btn-outline-secondary" type="submit" value="새 글 작성"  OnClick="window.location='/Project/writeForm.do'">
+                <input class="btn btn-outline-secondary" type="submit" value="새 글 작성"  OnClick="window.location='/Project/mate_writeForm.do'">
             </span>
 
             <div class="container px-4 px-lg-5 mt-5">
@@ -137,7 +137,7 @@ function more(){
                 <c:forEach var="article" items="${articleList}">
                 
                     <div class="col mb-5">
-                        <div class="card h-100" onclick="location.href='/Project/content.do?num=${article.mate_no}&pageNum=${pgList.currentPage}'">
+                        <div class="card h-100" onclick="location.href='/Project/mate_content.do?num=${article.mate_no}&pageNum=${pgList.currentPage}'">
                             <!-- Product image-->
                           <div class="col_up">
                             <div class="card_pf" style="
@@ -152,7 +152,28 @@ function more(){
                                     <!-- Product price-->
                                     ${article.writer}
                                 </div>
-                                <span class="mini_s">비흡연</span>  <span class="mini_s">반려동물</span>
+                                
+                                <c:if test="${article.tendency.smoking =='Y'}">
+                                	<span class="mini_s">흡연</span>
+                                </c:if>
+                                <c:if test="${article.tendency.smoking =='N'}">
+                                	<span class="mini_s">비흡연</span>
+                                </c:if>
+                                
+                                <c:if test="${article.tendency.pet =='Y'}">
+                                	<span class="mini_s">반려동물</span>
+                                </c:if>
+                                <c:if test="${article.tendency.pet =='N'}">
+                                	<span class="mini_s">반려돌물x</span>
+                                </c:if>
+                               
+                                <c:if test="${article.tendency.sleepinghabbit =='Y'}">
+                                 	<span class="mini_s">잠버릇</span>
+                                </c:if>
+                                <c:if test="${article.tendency.sleepinghabbit =='N'}">
+                                 	<span class="mini_s">잠버릇x</span>
+                                </c:if>
+                                
                             </div>
                         </div>
                     </div>
@@ -173,11 +194,11 @@ function more(){
  <!-- 페이징 처리 -->
 	<center>
 	<c:if test="${pgList.startPage > pgList.blockSize}">
-		<a href="/Project/list.do?pageNum=${pgList.startPage-pgList.blockSize}&search=${search}&searchtext=${searchtext}"> [이전]</a>
+		<a href="/Project/mate_list.do?pageNum=${pgList.startPage-pgList.blockSize}&search=${search}&searchtext=${searchtext}"> [이전]</a>
 	</c:if>
 	
 	<c:forEach var="i" begin="${pgList.startPage}" end="${pgList.endPage}">
-		<a href="/Project/list.do?pageNum=${i}&search=${search}&searchtext=${searchtext}">
+		<a href="/Project/mate_list.do?pageNum=${i}&search=${search}&searchtext=${searchtext}">
 			<c:if test="${pgList.currentPage==i}">
 				<font color="red"><b>[${i}]</b></font>
 			</c:if>	
@@ -188,7 +209,7 @@ function more(){
 	</c:forEach>
 	
 	<c:if test="${pgList.endPage <pgList.pageCount}">
-		<a href="/Project/list.do?pageNum=${pgList.startPage+pgList.blockSize}&search=${search}&searchtext=${searchtext}"> [다음]</a>
+		<a href="/Project/mate_list.do?pageNum=${pgList.startPage+pgList.blockSize}&search=${search}&searchtext=${searchtext}"> [다음]</a>
 	</c:if>
 	</center>
 <p>
