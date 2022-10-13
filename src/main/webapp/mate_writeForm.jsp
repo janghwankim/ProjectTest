@@ -1,6 +1,10 @@
+<%@page import="Kjh.board.MateDTO"%>
+<%@page import="Kjh.board.MateDAO"%>
+<%@page import="java.io.IOException"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,10 +16,40 @@
   <link href="css/bootstrap.css" rel="stylesheet" /> 
   <link href="css/styles.css" rel="stylesheet" />
 <script language="JavaScript" src="script.js?ver=1"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
-   <%
-	//int num=(Integer)request.getAttribute("num");//=>${num}
-   %>
+ <script type="text/javascript">
+//이미지 미리보기
+	var sel_file;
+	
+	$(document).ready(function() {
+		$("#file").on("change", handleImgFileSelect);
+	});
+	
+	function handleImgFileSelect(e) {
+		var files = e.target.files;
+		var filesArr = Array.prototype.slice.call(files);
+		
+		var reg = /(.*?)\/(jpg|jpeg|png|bmp)$/;
+		
+		filesArr.forEach(function(f) {
+			if (!f.type.match(reg)) {
+				alert("확장자는 이미지 확장자만 가능합니다.");
+				return;
+			}
+			
+			sel_file = f;
+			
+			var reader = new FileReader();
+			reader.onload = function(e) {
+				$("#img").attr("src", e.target.result);
+			};
+			reader.readAsDataURL(f);
+		});
+	}
+ </script>
+ 
+ 
 <body>  
 <div class="wrap">
             <!-- 로고 -->
@@ -36,8 +70,11 @@
             </nav>
             <p>
 	<div>
+
+	
+	
 	<form method="post" name="writeform" 
-		   action="/Project/mate_writePro.do" 
+		   action="/Project/mate_writePro.do" enctype="multipart/form-data"
 		   onsubmit="return writeSave()">
 		   
 	<!-- 입력하지 않고 매개변수로 전달해서 테이블에 저장(hidden) -->		   
@@ -49,12 +86,15 @@
 		<div class="pf_session">
                 <div class="pf">  
                     <div class="pf_top">
+                    
                         <div class="pf_img"> 
-                            <!-- 이미지 -->
+                        	
+                             <img src="test/img/miri.png" id="img" width="230px" height="230px" /> 
                              
                              <div style="text-align: center;">
-                              	<input type="file" class="img-upload" accept="image/*" > 
+                              	<input type="file" class="form-control" id="file" name="file" /> 
                               </div>
+                              
                         </div> 
                        
                     </div>
@@ -81,10 +121,10 @@
                                     <td bgcolor="#F5F5F5"><b>성향</b></td>
                                     <td colspan="3">
                                     <p>
-                                    	흡연: ${smoking} 수면시간: ${sleeptime} 기상시간: ${waketime} 반려동물: ${pet} <br>
-                                    	잠버릇: ${sleepinghabbit} 샤워시간: ${showertime} 출근시간: ${start_time} 퇴근시간: ${end_time}
+                                    	흡연: ${smoking} 수면시간: ${sleeptime}  반려동물: ${pet} 잠버릇: ${sleepinghabbit} <br>
+                                    	샤워시간: ${showertime} 출근시간: ${starttime} 퇴근시간: ${endtime}
                                         <input type="hidden" class="pf_input" style="width: 100%; height:120px"
-                                        value="<c:out value="흡연: ${smoking} 수면시간: ${sleeptime} 기상시간: ${waketime} 반려동물: ${pet} 잠버릇: ${sleepinghabbit} 샤워시간: ${showertime} 출근시간: ${start_time} 퇴근시간: ${end_time}"  />"  >
+                                        value="<c:out value="흡연: ${smoking} 수면시간: ${sleeptime}  반려동물: ${pet} 잠버릇: ${sleepinghabbit} 샤워시간: ${showertime} 출근시간: ${starttime} 퇴근시간: ${endtime}"  />"  >
 									</p>
                                     </td>
                                 </tr>

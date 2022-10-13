@@ -13,7 +13,7 @@
     
 <%
 
-	String directory="C:/webtest/4.jsp/sou/Project/src/main/webapp/fileFolder"; //저장될 폴
+	String directory="C:/webtest/4.jsp/sou/Project/src/main/webapp/fileFolder"; //저장될 폴더
     int maxsize = 1024 * 1024 * 100; 
 	String encoding="UTF-8";
     

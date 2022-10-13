@@ -1,3 +1,10 @@
+<%@page import="Kjh.board.MateDTO"%>
+<%@page import="Kjh.board.MateDAO"%>
+<%@page import="java.io.IOException"%>
+<%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
+<%@page import="com.oreilly.servlet.MultipartRequest"%>
+<%@page import="java.io.File" %>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
@@ -13,6 +20,8 @@
   <!-- Core theme CSS (includes Bootstrap)-->
   <link href="css/bootstrap.css" rel="stylesheet" /> 
   <link href="css/styles.css" rel="stylesheet" />
+  <script language="JavaScript" src="script.js?ver=1"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
 
 <script>
@@ -48,7 +57,7 @@ function more(){
             </nav>
        <div class="op">
         <form name="filter" class="filter" action="/Project/mate_list.do" method="post" onsubmit="doSearch();">
-        <select class="form-select form-select-lg" name="workStartTime">
+        <select class="form-select form-select-lg" name="starttime">
             <option value="" selected>출근시간</option>
             <option value="8">08:00</option>
             <option value="9">09:00</option>
@@ -56,7 +65,7 @@ function more(){
             <option value="11">11:00</option>
             <option value="others">저녁출근</option>
         </select>
-            <select class="form-select form-select-lg" name="workEndTime">
+            <select class="form-select form-select-lg" name="endtime">
                 <option value=""  selected>퇴근시간</option>
                 <option value="17">17:00</option>
                 <option value="18">18:00</option>
@@ -123,6 +132,10 @@ function more(){
 		</table>
 		</c:if>
 
+    <%
+    	MateDTO article=new MateDTO();
+    	String filename=article.getFilename();
+    %>
  		<c:if test="${pgList.count > 0 }">
         <!-- Section-->
         <section class="py-5">
@@ -140,9 +153,12 @@ function more(){
                         <div class="card h-100" onclick="location.href='/Project/mate_content.do?num=${article.mate_no}&pageNum=${pgList.currentPage}'">
                             <!-- Product image-->
                           <div class="col_up">
-                            <div class="card_pf" style="
+                          		<div class="card_pf" >
+                          			<img class="list_img" src="<%=request.getContextPath() %>/fileFolder/${article.filename}">
+                          		</div>
+                         <!--    <div class="card_pf" style="
                                 background:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSc2M6fCVIQhRBDQQj9EZloPHSglbtpYjW0bg&usqp=CAU') center center">
-                            </div>
+                            </div> -->
                           </div>
                             <!-- Product details-->
                             <div class="card-body p-4">
@@ -150,7 +166,7 @@ function more(){
                                     <!-- Product name-->
                                     <h5 class="fw-bolder">${article.title}</h5>
                                     <!-- Product price-->
-                                    ${article.writer}
+                                    ${article.member.id}
                                 </div>
                                 
                                 <c:if test="${article.tendency.smoking =='Y'}">
@@ -193,9 +209,13 @@ function more(){
 
  <!-- 페이징 처리 -->
 	<center>
-	<c:if test="${pgList.startPage > pgList.blockSize}">
+	<%-- 블럭이 10개 이상이면 이거 적용
+	 <c:if test="${pgList.startPage > pgList.blockSize}">
 		<a href="/Project/mate_list.do?pageNum=${pgList.startPage-pgList.blockSize}&search=${search}&searchtext=${searchtext}"> [이전]</a>
-	</c:if>
+	</c:if> 
+	--%>
+	
+	<a href="/Project/mate_list.do?pageNum=${pgList.startPage}&search=${search}&searchtext=${searchtext}"> [이전]</a>
 	
 	<c:forEach var="i" begin="${pgList.startPage}" end="${pgList.endPage}">
 		<a href="/Project/mate_list.do?pageNum=${i}&search=${search}&searchtext=${searchtext}">
@@ -208,9 +228,10 @@ function more(){
 		</a>
 	</c:forEach>
 	
-	<c:if test="${pgList.endPage <pgList.pageCount}">
+	<%-- <c:if test="${pgList.endPage <pgList.pageCount}">
 		<a href="/Project/mate_list.do?pageNum=${pgList.startPage+pgList.blockSize}&search=${search}&searchtext=${searchtext}"> [다음]</a>
-	</c:if>
+	</c:if> --%>
+	<a href="/Project/mate_list.do?pageNum=${pgList.endPage}&search=${search}&searchtext=${searchtext}"> [다음]</a>
 	</center>
 <p>
 

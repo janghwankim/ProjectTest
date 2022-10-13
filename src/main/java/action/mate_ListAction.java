@@ -29,8 +29,8 @@ public class mate_ListAction implements CommandAction {
 	System.out.println("pageNum=>"+pageNum+",search=>"+search+",searchtext=>"+searchtext);
 	
 	//추가(필터에 대한 값 가져오기)
-	String workStartTime=nullToEmpty(request.getParameter("workStartTime"));
-	String workEndTime=nullToEmpty(request.getParameter("workEndTime"));
+	String starttime=nullToEmpty(request.getParameter("starttime"));
+	String endtime=nullToEmpty(request.getParameter("endtime"));
 	String sleepTime=nullToEmpty(request.getParameter("sleepTime"));
 	String showerTime=nullToEmpty(request.getParameter("showerTime"));
 	String smokeYN=nullToEmpty(request.getParameter("smokeYN"));
@@ -39,8 +39,8 @@ public class mate_ListAction implements CommandAction {
 	String searchText=nullToEmpty(request.getParameter("searchText"));
 	
 	TendencyDTO tenDTO = new TendencyDTO();
-	tenDTO.setWorkStartTime(workStartTime);
-	tenDTO.setWorkEndTime(workEndTime);
+	tenDTO.setStarttime(starttime);
+	tenDTO.setEndtime(endtime);
 	tenDTO.setSleeptime(sleepTime);
 	tenDTO.setShowertime(showerTime);
 	tenDTO.setSmoking(smokeYN);

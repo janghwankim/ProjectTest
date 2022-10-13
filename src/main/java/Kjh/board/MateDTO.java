@@ -13,11 +13,13 @@ public class MateDTO {
 	private String lifestyle; //라이프스타일
 	private int views;//조회수
 	private String other_matter; //기타사항
+	//조인을 하고 값 넘겨오기위해 추가
 	private TendencyDTO tendency = new TendencyDTO();
+	private MemberDTO member= new MemberDTO();
 	
 	//추가 사진 업로드
-	private String fileName; 
-	private String fileRealName;
+	private String filename; 
+	private String fileRealname;
 	
 	
 	public MateDTO() {
@@ -30,6 +32,14 @@ public class MateDTO {
 
 	public void setTendency(TendencyDTO tendency) {
 		this.tendency = tendency;
+	}
+
+	public MemberDTO getMember() {
+		return member;
+	}
+
+	public void setMember(MemberDTO member) {
+		this.member = member;
 	}
 
 	public int getMate_no() {
@@ -88,20 +98,20 @@ public class MateDTO {
 	}
 
 	
-	public String getFileName() {
-		return fileName;
+	public String getFilename() {
+		return filename;
 	}
 
-	public void setFileName(String fileName) {
-		this.fileName = fileName;
+	public void setFilename(String filename) {
+		this.filename = filename;
 	}
 
-	public String getFileRealName() {
-		return fileRealName;
+	public String getFileRealname() {
+		return fileRealname;
 	}
 
-	public void setFileRealName(String fileRealName) {
-		this.fileRealName = fileRealName;
+	public void setFileRealname(String fileRealname) {
+		this.fileRealname = fileRealname;
 	}
 
 			//모든 DTO클래스 뒤에 이 메서드를 추가할것

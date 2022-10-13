@@ -1,6 +1,13 @@
+<%@page import="Kjh.board.MateDTO"%>
+<%@page import="Kjh.board.MateDAO"%>
+<%@page import="java.io.IOException"%>
+<%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
+<%@page import="com.oreilly.servlet.MultipartRequest"%>
+<%@page import="java.io.File" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +19,7 @@
   <link href="css/bootstrap.css" rel="stylesheet" /> 
   <link href="css/styles.css" rel="stylesheet" />
 <script language="JavaScript" src="script.js?ver=1"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
     <body>
         <div class="wrap">
@@ -32,11 +40,17 @@
                 </ul>
             </nav>
             <p>
+            
+            <%
+            	MateDTO article=new MateDTO();
+            	String filename=article.getFilename();
+            %>
+            
                 <div class="pf_session">
                 <div class="pf">  
                     <div class="pf_top">
                         <div class="pf_img"> 
-                            
+                            	<img class="content_img" src="<%=request.getContextPath() %>/fileFolder/${article.filename}">
                         </div>
                     </div>  
                     <div class="pf_body">
@@ -44,7 +58,7 @@
                         <table width="770" border="1" cellspacing="0" cellpadding="0" align="center">
                             <tr>
                                 <td bgcolor="#F5F5F5"><b>작성자</b></td>
-                                <td>${article.writer}</td>
+                                <td>${article.member.id}</td>
                                 <td bgcolor="#F5F5F5"><b>성별</b></td>
                                 <td>${article.gender}</td>
                             </tr>
@@ -55,8 +69,8 @@
                             <tr>
                                 <td bgcolor="#F5F5F5"><b>성향</b></td>
                                 <td colspan="3">
-                                    	흡연: ${article.tendency.smoking} 수면시간: ${article.tendency.sleeptime} 기상시간: ${article.tendency.waketime} 반려동물: ${article.tendency.pet} <br>
-                                    	잠버릇: ${article.tendency.sleepinghabbit} 샤워시간: ${article.tendency.showertime} 출근시간: ${article.tendency.workStartTime} 퇴근시간: ${article.tendency.workEndTime}
+                                    	흡연: ${article.tendency.smoking} 수면시간: ${article.tendency.sleeptime}  반려동물: ${article.tendency.pet} 잠버릇: ${article.tendency.sleepinghabbit}  <br>
+                                    	샤워시간: ${article.tendency.showertime} 출근시간: ${article.tendency.starttime} 퇴근시간: ${article.tendency.endtime}
                                     </td>
                             </tr>
                             <tr>

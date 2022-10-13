@@ -45,26 +45,24 @@ public class mate_WriteFormAction implements CommandAction {
 			
 		//	int id_no= 0;
 			String sleeptime= "";
-			String waketime = "";
 			String smoking ="";
 			String pet ="";
 			String sleepinghabbit ="";
 			String showertime ="";
-			String start_time ="";
-			String end_time ="";
+			String starttime ="";
+			String endtime ="";
 			if (rs.next()) {
 				gender = rs.getString("gender");
 				id = rs.getString("id");
 				
 	//			id_no=rs.getInt("id_no");
 				sleeptime = rs.getString("sleeptime");
-				waketime = rs.getString("waketime");
 				smoking = rs.getString("smoking");
 				pet = rs.getString("pet");
 				sleepinghabbit = rs.getString("sleepinghabbit");
 				showertime = rs.getString("showertime");
-				start_time = rs.getString("start_time");
-				end_time = rs.getString("end_time");
+				starttime = rs.getString("starttime");
+				endtime = rs.getString("endtime");
 			}
 		
 		   //content.do에서 매개변수로 전달
@@ -82,13 +80,12 @@ public class mate_WriteFormAction implements CommandAction {
 
 //		   	request.setAttribute("id_no", id_no);
 		   	request.setAttribute("sleeptime", sleeptime);
-		   	request.setAttribute("waketime", waketime);
 		   	request.setAttribute("smoking", smoking);
 		   	request.setAttribute("pet", pet);
 		   	request.setAttribute("sleepinghabbit", sleepinghabbit);
 		   	request.setAttribute("showertime", showertime);
-		   	request.setAttribute("start_time", start_time);
-		   	request.setAttribute("end_time", end_time);
+		   	request.setAttribute("starttime", starttime);
+		   	request.setAttribute("endtime", endtime);
 	
 		   	
 		   	

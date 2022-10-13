@@ -4,22 +4,15 @@ package Kjh.board;
 public class TendencyDTO {
 
 	private int id_no = 0;// 아이디일련번호
-	private String workStartTime = "";
-	private String workEndTime = "";
+	private String Starttime = "";//출근시간
+	private String endtime = "";//퇴근시간
 	private String sleeptime = ""; //수면시간
 	private String smoking = "";// 흡연유무
 	private String pet = ""; //반려동물유무
-	private String cleaning = "";//관리스타일
 	private String sleepinghabbit = "";//잠버릇
 	private String showertime = "";//샤워시간
-	private String waketime = "";//기상시간
+
 	
-	public String getWaketime() {
-		return waketime;
-	}
-	public void setWaketime(String waketime) {
-		this.waketime = waketime;
-	}
 	//필터를 위해 추가 
 	private String searchText = "";
 	private String sleep ="" ;	
@@ -32,19 +25,20 @@ public class TendencyDTO {
 	public void setSleep(String sleep) {
 		this.sleep = sleep;
 	}
-	public String getWorkStartTime() {
-		return workStartTime;
-	}
-	public void setWorkStartTime(String workStartTime) {
-		this.workStartTime = workStartTime;
-	}
-	public String getWorkEndTime() {
-		return workEndTime;
-	}
-	public void setWorkEndTime(String workEndTime) {
-		this.workEndTime = workEndTime;
-	}
+	
 
+	public String getStarttime() {
+		return Starttime;
+	}
+	public void setStarttime(String starttime) {
+		Starttime = starttime;
+	}
+	public String getEndtime() {
+		return endtime;
+	}
+	public void setEndtime(String endtime) {
+		this.endtime = endtime;
+	}
 	public String getSearchText() {
 		return searchText;
 	}
@@ -75,12 +69,7 @@ public class TendencyDTO {
 	public void setPet(String pet) {
 		this.pet = pet;
 	}
-	public String getCleaning() {
-		return cleaning;
-	}
-	public void setCleaning(String cleaning) {
-		this.cleaning = cleaning;
-	}
+	
 	public String getSleepinghabbit() {
 		return sleepinghabbit;
 	}
