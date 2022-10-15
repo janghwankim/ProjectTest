@@ -92,7 +92,7 @@
                              <img src="test/img/miri.png" id="img" width="230px" height="230px" /> 
                              
                              <div style="text-align: center;">
-                              	<input type="file" class="form-control" id="file" name="file" /> 
+                              	<input type="file" class="form-control" id="file" name="file" />
                               </div>
                               
                         </div> 
