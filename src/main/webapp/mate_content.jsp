@@ -44,6 +44,7 @@
             <%
             	MateDTO article=new MateDTO();
             	String filename=article.getFilename();
+            	
             %>
             
                 <div class="pf_session">
@@ -88,14 +89,38 @@
                                 <td>${article.created_datetime}</td>
                             </tr>
                             <tr>
+                            	 <% 
+              	String id= null;
+            	if(session.getAttribute("id")!=null){
+            	
+            		id=(String)session.getAttribute("id");
+            		//	id=(String)session.getAttribute("id");
+            	}
+            		//	 session.getAttribute("id");  //Session을 Object로 담았을때        
+                 
+                      //  if(id.equals(article.member.GetId()))   {  
+                    	  
+                        %>
+                        <!-- 임시로 가라값을 넣은것으로 나중에 세션 잘되면 바꿔야함 -->
+                        <c:if test="${article.member.id == 'kkk'}">
                                 <td colspan="4" align="right">
                                     <span class="pf_button">
                                         <input class="btn btn-outline-secondary" type="submit" value="신청하기">
-                                    </span>
+                                    </span> 		        
                                 <input type="button" class="btn btn-outline-secondary" value="글수정"  onclick="document.location.href='/Project/mate_updateForm.do?mate_no=${article.mate_no}&pageNum=${pageNum}'">
                                 <input type="button" class="btn btn-outline-secondary" value="글삭제"  onclick="document.location.href='/Project/mate_deleteForm.do?mate_no=${article.mate_no}&pageNum=${pageNum}'">
                                 <input type="button" class="btn btn-outline-secondary" value="글목록" onclick="document.location.href='/Project/mate_list.do?pageNum=${pageNum}'">
                                 </td>
+                                </c:if>
+                                
+                                <c:if test="${article.member.id != 'kkk'}">
+                            	<td colspan="4" align="right">
+                                <span class="pf_button">
+                                    <input class="btn btn-outline-secondary" type="submit" value="신청하기">
+                                </span> 		
+                                <input type="button" class="btn btn-outline-secondary" value="글목록" onclick="document.location.href='/Project/mate_list.do?pageNum=${pageNum}'">
+                                </td>
+                            	</c:if>
                             </tr>
                         </table>
                     </form>

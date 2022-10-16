@@ -19,7 +19,8 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
  <script type="text/javascript">
-//이미지 미리보기
+	
+ //이미지 미리보기
 	var sel_file;
 	
 	$(document).ready(function() {
@@ -47,6 +48,8 @@
 			reader.readAsDataURL(f);
 		});
 	}
+	
+    	
  </script>
  
  
@@ -89,17 +92,17 @@
                     
                         <div class="pf_img"> 
                         	
-                             <img src="test/img/miri.png" id="img" width="230px" height="230px" /> 
+                             <img src="test/img/miri.png" class="write_img" id="write_img" width="230px" height="230px" /> 
                              
                              <div style="text-align: center;">
-                              	<input type="file" class="form-control" id="file" name="file" />
+                              	<input type="file" class="form-control" id="file" name="file"  required />
                               </div>
                               
                         </div> 
                        
                     </div>
                     <div class="pf_body">
-                            <table width="770" border="1" cellspacing="0" cellpadding="0" align="center">
+                            <table width="770" border="1" cellspacing="0" cellpadding="0" align="center" >
                                 <tr>
                                     <td bgcolor="#F5F5F5"><b>작성자</b></td>
                                     <td>
@@ -113,7 +116,7 @@
                                 <tr>
                                     <td bgcolor="#F5F5F5"><b>제목</b></td>
                                     <td colspan="3">
-                                        <input type="text" class="pf_input" name="title">
+                                        <input type="text" class="pf_input" name="title" required placeholder="제목을 입력하세요." >
                                     </td>
                                  
                                 </tr>
@@ -131,13 +134,13 @@
                                 <tr>
                                     <td bgcolor="#F5F5F5"><b>라이프스타일</b></td>
                                     <td colspan="3">
-                                        <input type="text" class="pf_input" name="lifestyle">
+                                        <input type="text" class="pf_input" name="lifestyle" placeholder='성향외의 스타일을 입력하세요  ex) 청소습관 등'>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td bgcolor="#F5F5F5"><b>기타사항</b></td>
                                     <td colspan="3">
-                                        <input type="text" class="pf_input" name="other_matter">
+                                        <input type="text" class="pf_input" name="other_matter" placeholder="한줄메세지를 입력하세요.">
                                     </td>
                                 </tr>
                                 <tr>

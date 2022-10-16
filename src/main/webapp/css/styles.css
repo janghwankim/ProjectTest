@@ -208,7 +208,7 @@ td{
   border: none;
 }
 
-#img{
+.write_img{
   width: 230px;
   height: 230px;
   border-radius: 50%; 
@@ -230,4 +230,32 @@ td{
     border-radius: 50%;
     display: inline-block;
   	content: "";
+}
+
+.paging {
+    display:flex;
+    justify-content: center;
+    margin-top:40px;
+}
+.paging img {
+    width:28px;
+    height:28px;
+    text-indent: 100%;
+    white-space: nowrap;
+}
+.num {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    font-size:19px;
+    margin:0px 10px;
+    color:#666666;
+}
+.num a:link {
+   color:#666666;
+}
+.num:active {
+    color:#FFFFFF;
+    border-radius:50%;
+    background-color:#57D2C4;
 }

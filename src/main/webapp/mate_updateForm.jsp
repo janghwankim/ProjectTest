@@ -1,6 +1,13 @@
+<%@page import="Kjh.board.MateDTO"%>
+<%@page import="Kjh.board.MateDAO"%>
+<%@page import="java.io.IOException"%>
+<%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
+<%@page import="com.oreilly.servlet.MultipartRequest"%>
+<%@page import="java.io.File" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,12 +50,17 @@
 	<!-- 입력하지 않고 매개변수로 전달해서 테이블에 저장(hidden) -->		   
 	<input type="hidden" name="mate_no" value="${article.mate_no}"> 
 
+		 	<%
+            	MateDTO article=new MateDTO();
+            	String filename=article.getFilename();
+            %>
+
 	
 		<div class="pf_session">
                 <div class="pf">  
                     <div class="pf_top">
                         <div class="pf_img"> 
-                            <!-- 이미지 -->
+                           <img class="content_img" src="<%=request.getContextPath() %>/fileFolder/${article.filename}">
                         </div> 
                     </div>
                     <div class="pf_body">
@@ -56,11 +68,11 @@
                                 <tr>
                                     <td bgcolor="#F5F5F5"><b>작성자</b></td>
                                     <td>
-                                        <input type="text" class="pf_input" name="writer" value="${article.writer}">
+                                        <input type="text" class="pf_input" name="writer" value="${article.member.id}">
                                     </td>
                                     <td bgcolor="#F5F5F5"><b>성별</b></td>
                                     <td>
-                                        <input type="text" class="pf_input" name="gender" value="${article.gender}">
+                                        <input type="text" class="pf_input" name="gender" value="${article.member.gender}">
                                     </td>
                                 </tr>
                                 <tr>
@@ -73,7 +85,8 @@
                                 <tr>
                                     <td bgcolor="#F5F5F5"><b>성향</b></td>
                                     <td colspan="3">
-                                        <input type="text" class="pf_input" style="width: 100%;"  >
+                                         흡연: ${article.tendency.smoking} 수면시간: ${article.tendency.sleeptime}  반려동물: ${article.tendency.pet} 잠버릇: ${article.tendency.sleepinghabbit}  <br>
+                                    	샤워시간: ${article.tendency.showertime} 출근시간: ${article.tendency.starttime} 퇴근시간: ${article.tendency.endtime}
                                     </td>
                                 </tr>
                                 <tr>

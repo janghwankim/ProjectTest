@@ -49,7 +49,7 @@ function more(){
             <nav class="nav">
                 <ul class="menu">
                     <li><a href="#">쉐어하우스</a></li>
-                    <li><a href="#">룸메이트</a></li>
+                    <li><a href="/Project/mate_list.do">룸메이트</a></li>
                     <li><a href="#">자유게시판</a></li>
                     <li><a href="#">공지사항</a></li>
                     <li><a href="#">성향테스트</a></li>
@@ -156,9 +156,7 @@ function more(){
                           		<div class="card_pf" >
                           			<img class="list_img" src="<%=request.getContextPath() %>/fileFolder/${article.filename}">
                           		</div>
-                         <!--    <div class="card_pf" style="
-                                background:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSc2M6fCVIQhRBDQQj9EZloPHSglbtpYjW0bg&usqp=CAU') center center">
-                            </div> -->
+                   
                           </div>
                             <!-- Product details-->
                             <div class="card-body p-4">
@@ -214,11 +212,11 @@ function more(){
 		<a href="/Project/mate_list.do?pageNum=${pgList.startPage-pgList.blockSize}&search=${search}&searchtext=${searchtext}"> [이전]</a>
 	</c:if> 
 	--%>
-	
-	<a href="/Project/mate_list.do?pageNum=${pgList.startPage}&search=${search}&searchtext=${searchtext}"> [이전]</a>
+	<div class="paging">
+	<a href="/Project/mate_list.do?pageNum=${pgList.startPage}&search=${search}&searchtext=${searchtext}" class="prev"><img src="./image/left-next.png"></a>
 	
 	<c:forEach var="i" begin="${pgList.startPage}" end="${pgList.endPage}">
-		<a href="/Project/mate_list.do?pageNum=${i}&search=${search}&searchtext=${searchtext}">
+		<a href="/Project/mate_list.do?pageNum=${i}&search=${search}&searchtext=${searchtext}" class="num">
 			<c:if test="${pgList.currentPage==i}">
 				<font color="red"><b>[${i}]</b></font>
 			</c:if>	
@@ -231,7 +229,8 @@ function more(){
 	<%-- <c:if test="${pgList.endPage <pgList.pageCount}">
 		<a href="/Project/mate_list.do?pageNum=${pgList.startPage+pgList.blockSize}&search=${search}&searchtext=${searchtext}"> [다음]</a>
 	</c:if> --%>
-	<a href="/Project/mate_list.do?pageNum=${pgList.endPage}&search=${search}&searchtext=${searchtext}"> [다음]</a>
+	<a href="/Project/mate_list.do?pageNum=${pgList.endPage}&search=${search}&searchtext=${searchtext}"class="prev"><img src="./image/right-next.png"></a>
+	</div>
 	</center>
 <p>
 
